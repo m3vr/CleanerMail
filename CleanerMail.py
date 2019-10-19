@@ -1,10 +1,5 @@
 import config # Config file
-
-import sys
 import smtplib
-import schedule
-import time
-
 from email.message import EmailMessage
 from datetime import date
 
@@ -58,18 +53,5 @@ def send_CleanerMail():
         smtp.send_message(msg)
         print("Email sent.")
 
-
-schedule.every(2).minutes.do(send_CleanerMail)
-print("--- To exit the program press ctrl+c ---")
-
-while 1:
-    try:
-        schedule.run_pending()
-        time.sleep(1)
-    except KeyboardInterrupt:
-        print("\n--------------------")
-        print("Closing "+sys.argv[0]+"...")
-        schedule.clear()
-        print("All jobs stopped. System will exit")
-        sys.exit(0)
-       
+if __name__ == "__main__":
+    main()
