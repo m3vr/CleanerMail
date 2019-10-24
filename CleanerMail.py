@@ -1,5 +1,6 @@
 import config # Config file
 import smtplib
+import sys
 from email.message import EmailMessage
 from datetime import date
 
@@ -34,8 +35,8 @@ def send_CleanerMail():
         smtp.login(config.email.get("adress"), config.email.get("password"))
 
         msg = EmailMessage()
-        msg['Subject'] = "Schoonmaakrooster"
-        msg['From'] = config.email.get("adress")
+        msg['Subject'] = str(sys.argv[1])
+        msg['From'] = str("Club Huyzch <"+config.email.get("adress")+">")
         msg['To'] = config.contacts
         msg.set_content(
             'Weeknummer: '+str(date.today().isocalendar()[1])+
@@ -98,7 +99,7 @@ def send_CleanerMail():
 													<table border="0" cellpadding="0" cellspacing="0" width="100%">
 														<tr>
 															<td>
-																<h2 style="margin: 0px;">Oppenvlaktes</h2>
+																<h2 style="margin: 0px;">Opruimen</h2>
 															</td>
 														</tr>
 														<tr>
@@ -115,7 +116,7 @@ def send_CleanerMail():
                                 <tr>
                                     <td style="padding-top: 40px;">
                                         <p style="margin: 0px;"><i><b>Vloeren:</b> Stofzuigen en dweilen van de gang, keuken en woonkamer. (en nee niet de gang dweilen)</i></p>
-                                        <p style="margin: 0px;"><i><b>Oppervlaktes:</b> Opruimen van de keuken en woonkamer, en het doen van de huiswas.</i></p>
+                                        <p style="margin: 0px;"><i><b>Opruimen:</b> Opruimen van de keuken en woonkamer, het doen van de huiswas en het karton weg brengen.</i></p>
                                     </td>
                                 </tr>
                             </table>
