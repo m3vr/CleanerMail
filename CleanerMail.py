@@ -41,7 +41,7 @@ def send_CleanerMail(send_all):
     print("Floor: \t\t"+cleaners["floor"])
     print("Surface: \t"+cleaners["surface"])
 
-    if send_all:
+    if send_all == 1:
         subject = "Schoonmaakrooster"
         sendTo = config.contacts
     else:
