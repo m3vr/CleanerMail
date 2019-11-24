@@ -1,3 +1,5 @@
+#! /usr/bin/python3
+
 import config  # Config file
 import cleanerschedule
 import smtplib
