@@ -1,5 +1,6 @@
 # Custom ignors
 config.py
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

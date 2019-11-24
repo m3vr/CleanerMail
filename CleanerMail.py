@@ -17,6 +17,8 @@ def main():
                     action="store_true")
     parser.add_argument("-s", "--single-email", help="send only an email to this adress",
                     type=str)
+    parser.add_argument("-w", "--skip-weeks", help="number of weeks to skip",
+                    type=int, default=0)
     parser.add_argument("-d", "--debug", help="will not actually send emails",
                     action="store_true")
     parser.add_argument("-v", "--verbose", help="increase output verbosity",
@@ -40,7 +42,7 @@ def main():
 def send_CleanerMail(args):
     cleaners = cleanerschedule.get_cleaners(sorted(list(config.contacts.keys())), config.jobs, args)
 
-    if len(args.single_email) != 0:
+    if args.single_email:
         sendTo = {"<NAME>": args.single_email}
     elif args.send_all:
         sendTo = config.contacts

@@ -1,8 +1,9 @@
 from datetime import date
 
 def get_cleaners(residents, jobs, args):
-    weekNumber = date.today().isocalendar()[1]
-    if args.verbose: print(f"INFO: Weeknumber: {weekNumber}")
+    if args.verbose: print(f"INFO: Weeknumber: {date.today().isocalendar()[1]}")
+    if args.verbose: print(f"INFO: Skip weeks: {args.skip_weeks}")
+    weekNumber = date.today().isocalendar()[1] + args.skip_weeks
 
     cleaners = dict()
 
