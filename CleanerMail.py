@@ -47,8 +47,7 @@ def send_CleanerMail(args):
     elif args.send_all:
         sendTo = config.contacts
     else:
-        keys = [cleaners["floor"], cleaners["surface"]]
-        sendTo = {x: config.contacts[x] for x in keys}
+        sendTo = {x: config.contacts[x] for x in cleaners.values()}
 
     with smtplib.SMTP_SSL('smtp.strato.com', 465) as smtp:
         smtp.login(config.email.get("adress"), config.email.get("password"))
