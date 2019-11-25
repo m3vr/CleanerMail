@@ -55,7 +55,7 @@ def send_CleanerMail(args):
             msg = EmailMessage()
             msg['Subject'] = args.subject
             msg['From'] = str("Club Huyzch <"+config.email.get("adress")+">")
-            msg['To'] = "m.evers95@gmail.com"
+            msg['To'] = email
             # msg.set_content(
             #     'Weeknummer: '+str(date.today().isocalendar()[1]) +
             #     '\nVloer: '+cleaners["floor"] +
